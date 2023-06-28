@@ -9,7 +9,6 @@ export APPEMAIL=example@example.com
 export ADMIN_PASSWORD=$(openssl rand -base64 15)
 echo ${ADMIN_PASSWORD} | sudo htpasswd -i -c admin_user admin
 export ADMIN_PASSWORD_BASE64=$(cat admin_user | base64)
-echo ${ADMIN_PASSWORD_BASE64}
 rm -rf admin_user
 
 

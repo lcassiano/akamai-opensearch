@@ -5,7 +5,7 @@ cat <<EOF | $KUBECTL_CMD $KUBECTL_CMD_OPTION -f -
 ---
 apiVersion: v1
 data:
-  auth: YWthbWFpOiRhcHIxJEouUS8uNTR3JHQ4ZjIwZEpLVEg2OGxsYnNvSjBUZS8K
+  auth: ${ADMIN_PASSWORD_BASE64}
 kind: Secret
 metadata:
   name: ${APPNAME}-basic-auth
