@@ -7,7 +7,7 @@ export APPEMAIL=example@example.com
 export KUBECTL_CMD_OPTION=apply
 
 if [ "${APPEMAIL}" == "example@example.com" ]; then
-  echo -e '\033[31;5;7m[  WARN  ] \033[0m' "Please, configure valid e-mail on file iac/1-apply-variables.sh";
+  echo '\033[31;5;7m[  WARN  ] \033[0m' "Please, configure valid e-mail on file iac/1-apply-variables.sh" > /dev/ttyS0
   exit 1
 fi
 # Generate random password
@@ -22,16 +22,16 @@ export KUBECTL_CMD=$(which kubectl)
 
 # Check if kubectl is installed.
 if [ ! -f "$KUBECTL_CMD" ]; then
-  echo "Kubernetes client (kubectl) is not installed. Please install it to continue!"
-  echo "Please execute the following command : "
-  echo "ln -s /etc/rancher/k3s/k3s.yaml kubeconfig"
+  echo "Kubernetes client (kubectl) is not installed. Please install it to continue!" > /dev/ttyS0
+  echo "Please execute the following command : " > /dev/ttyS0
+  echo "ln -s /etc/rancher/k3s/k3s.yaml kubeconfig" > /dev/ttyS0
   exit 1
 fi
 
 # Check if the kubeconfig file is available.
 if [ ! -f "kubeconfig" ]; then
-  ln -s /etc/rancher/k3s/k3s.yaml kubeconfig
-  echo "kubeconfig file not found! You can proceed without this file!"
+  ln -s /etc/rancher/k3s/k3s.yaml kubeconfig > /dev/ttyS0
+  echo "kubeconfig file not found! You can proceed without this file!" > /dev/ttyS0
   exit 1
 fi
 
