@@ -16,15 +16,17 @@ Customers want to use Openseach, analyze and process their Akamai Security Data,
 
 ## 4. Configure
 
+Clone last version of repository.
+- `git clone https://github.com/lcassiano/akamai-opensearch.git` 
 Edit file  iac/1-apply-variables.sh and change e-mail to valid e-mail
+- `nano akamai-opensearch/iac/1-apply-variables.sh`
 - `export APPEMAIL=example@example.com`
 
 ## 5. How to install
 
 After the provisioning finished, execute the following commands:
-- `git clone https://github.com/lcassiano/akamai-opensearch.git` get last version of repository.
-- `cd akamai-opensearch`
-- `bash k3s_setup.sh`
-- `cd iac`
-- `bash 0-setup.sh install`
-- `bash 0-setup.sh start`
+
+- `bash akamai-opensearch/k3s_setup.sh`
+- `cd akamai-opensearch/iac/`
+- `bash setup.sh install`
+- `bash setup.sh start`
