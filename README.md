@@ -13,6 +13,7 @@ Customers want to use Openseach, analyze and process their Akamai Security Data,
 
 - [Leandro Cassiano](https://contacts.akamai.com/lcassian) - Solution Architect LATAM
 - [Felipe Vilarinho](https://contacts.akamai.com/fvilarin) - Engagement Manager LATAM
+- [Jonathan Goncalves Moreira](https://contacts.akamai.com/jgoncalv) - Engagement Manager LATAM
 
 ## 4. Configure
 
