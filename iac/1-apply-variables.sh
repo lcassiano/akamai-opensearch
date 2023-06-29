@@ -6,6 +6,10 @@ export IPADDR=$(/sbin/ifconfig eth0 | awk '/inet / { print $2 }' | sed 's/addr:/
 export APPEMAIL=example@example.com
 export KUBECTL_CMD_OPTION=apply
 
+if [ "${APPEMAIL}" == "example@example.com" ]; then
+  echo -e '\033[31;5;7m[  WARN  ] \033[0m' "Please, configure valid e-mail on file iac/1-apply-variables.sh";
+  exit 1
+fi
 # Generate random password
 export ADMIN_PASSWORD=$(openssl rand -base64 15)
 echo ${ADMIN_PASSWORD} | sudo htpasswd -i -c admin_user admin
