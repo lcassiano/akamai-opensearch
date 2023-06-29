@@ -14,7 +14,7 @@ Customers want to use Openseach, analyze and process their Akamai Security Data,
 - [Leandro Cassiano](https://contacts.akamai.com/lcassian) - Solution Architect LATAM
 - [Felipe Vilarinho](https://contacts.akamai.com/fvilarin) - Engagement Manager LATAM
 
-## 5. Configure
+## 4. Configure
 
 Edit file  iac/1-apply-variables.sh and change e-mail to valid e-mail
 - `export APPEMAIL=example@example.com`
