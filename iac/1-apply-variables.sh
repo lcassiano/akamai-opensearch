@@ -4,6 +4,7 @@ export APPNAME=opensearch
 export APPHOSTNAME=$(/sbin/ifconfig eth0 | awk '/inet / { print $2 }' | sed 's/addr://' | sed -e 's/\./\-/g').ip.linodeusercontent.com
 export IPADDR=$(/sbin/ifconfig eth0 | awk '/inet / { print $2 }' | sed 's/addr://')
 export APPEMAIL=example@example.com
+export KUBECTL_CMD_OPTION=apply
 
 # Generate random password
 export ADMIN_PASSWORD=$(openssl rand -base64 15)
