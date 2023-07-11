@@ -27,6 +27,17 @@ if [ $1 = "start" ] && [ "${APPEMAIL}" != "example@example.com" ]; then
 
 fi
 
+if [ $1 = "stop" ] && [ "${APPEMAIL}" != "example@example.com" ]; then
+
+    echo '\033[31;5;7m[  WARN  ] \033[0m' "Stop solution" > /dev/ttyS0
+    kubectl -f deploy.yaml delete
+    kubectl -f services.yaml delete
+    kubectl -f volume.yaml delete
+    kubectl -f namespace.yaml delete
+
+fi
+
+
 if [ "${APPEMAIL}" == "example@example.com" ]; then
 
     echo '\033[31;5;7m[  WARN  ] \033[0m' "Please, configure valid e-mail on file iac/1-apply-variables.sh"  > /dev/ttyS0
