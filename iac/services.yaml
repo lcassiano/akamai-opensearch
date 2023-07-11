@@ -1,16 +1,11 @@
-#!/bin/bash
-
-# GENERATE SERVICES
-cat <<EOF | $KUBECTL_CMD apply -f -
----
 apiVersion: v1
 kind: Service
 metadata:
-  name: ${APPNAME}-node1
-  namespace: ${APPNAMESPACE}-${APPNAME}
+  name: opensearch-node1
+  namespace: akamai-opensearch
 spec:
   selector:
-    app: ${APPNAME}-node1
+    app: opensearch-node1
   ports:
     - name: http
       port: 9200
@@ -22,11 +17,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ${APPNAME}-node2
-  namespace: ${APPNAMESPACE}-${APPNAME}
+  name: opensearch-node2
+  namespace: akamai-opensearch
 spec:
   selector:
-    app: ${APPNAME}-node2
+    app: opensearch-node2
   ports:
     - name: http
       port: 9200
@@ -39,10 +34,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ${APPNAME}-dashboards-service
-  namespace: ${APPNAMESPACE}-${APPNAME}
+  name: opensearch-dashboards-service
+  namespace: akamai-opensearch
   labels:
-    app: ${APPNAME}-dashboards
+    app: opensearch-dashboards
 spec:
   type: ClusterIP
   ports:
@@ -50,16 +45,16 @@ spec:
       port: 5601
       targetPort: 5601
   selector:
-    app: ${APPNAME}-dashboards
+    app: opensearch-dashboards
 ---
 # Ingress service definition.
 apiVersion: v1
 kind: Service
 metadata:
-  name: ${APPNAME}-opensearch-service
-  namespace: ${APPNAMESPACE}-${APPNAME}
+  name: opensearch-opensearch-service
+  namespace: akamai-opensearch
   labels:
-    app: ${APPNAME}-node2
+    app: opensearch-node2
 spec:
   type: ClusterIP
   ports:
@@ -67,5 +62,4 @@ spec:
       port: 9200
       targetPort: 9200
   selector:
-    app: ${APPNAME}-node2
-EOF
+    app: opensearch-node2

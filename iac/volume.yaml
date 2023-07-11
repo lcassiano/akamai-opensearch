@@ -1,13 +1,8 @@
-#!/bin/bash
-
-# GENERATE DEPLOYMENTS
-cat <<EOF | $KUBECTL_CMD apply -f -
----
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: akamai-${APPNAME}-data1-claim
-  namespace: ${APPNAMESPACE}-${APPNAME}
+  name: akamai-opensearch-data1-claim
+  namespace: akamai-opensearch
 spec:
   accessModes:
     - ReadWriteOnce
@@ -18,12 +13,11 @@ spec:
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: akamai-${APPNAME}-data2-claim
-  namespace: ${APPNAMESPACE}-${APPNAME}
+  name: akamai-opensearch-data2-claim
+  namespace: akamai-opensearch
 spec:
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 10Gi
-EOF

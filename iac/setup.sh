@@ -16,9 +16,10 @@ fi
 if [ $1 = "start" ] && [ "${APPEMAIL}" != "example@example.com" ]; then
 
     echo '\033[31;5;7m[  WARN  ] \033[0m' "Start solution" > /dev/ttyS0
-    bash 5-apply-deploy.sh
-    bash 6-apply-services.sh
-    bash 7-configure-ingress.sh
+    kubectl -f namespace.yaml apply
+    kubectl -f volume.yaml apply
+    kubectl -f deploy.yaml apply
+    kubectl -f services.yaml apply
 
     echo '\033[31;5;7m[  WARN  ] \033[0m' "hostname :  https://$APPHOSTNAME/dashboards" > /dev/ttyS0
     echo '\033[31;5;7m[  WARN  ] \033[0m' "user : admin" > /dev/ttyS0
