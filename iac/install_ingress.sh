@@ -19,14 +19,14 @@ metadata:
   name: letsencrypt-prod
 spec:
   acme:
-    email: ${OSEMAIL}
+    email: lcassian@akamai.com
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: letsencrypt-secret-prod
     solvers:
     - http01:
-	ingress:
-      class: nginx
+        ingress:
+          class: nginx
 EOF
 
 echo "Appling Secret"
