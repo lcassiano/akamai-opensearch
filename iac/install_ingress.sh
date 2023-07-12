@@ -11,6 +11,7 @@ rm -rf admin_user
 
 echo ${OSEMAIL} ${OSUSER} ${ADMIN_PASSWORD} ${APPHOSTNAME}
 
+echo "Appling ClusterIssuer"
 cat <<EOF | kubectl apply -f -
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
@@ -26,7 +27,9 @@ spec:
     - http01:
 	ingress:
           class: nginx
----
+EOF
+
+echo "Appling Secret"
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
 data:
@@ -36,7 +39,10 @@ metadata:
   name: opensearch-basic-auth
   namespace: akamai-opensearch
 type: Opaque
----
+EOF
+
+echo "Appling Ingress"
+
 cat <<EOF | kubectl apply -f -
 apiVersion: networking.k8s.io/v1
 kind: Ingress
@@ -73,4 +79,3 @@ spec:
             port:
               number: 9200
 EOF
-
