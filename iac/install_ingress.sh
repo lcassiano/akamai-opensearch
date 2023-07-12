@@ -19,7 +19,7 @@ metadata:
   name: letsencrypt-prod
 spec:
   acme:
-    email: lcassian@akamai.com
+    email: '${OSEMAIL}'
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       name: letsencrypt-secret-prod
