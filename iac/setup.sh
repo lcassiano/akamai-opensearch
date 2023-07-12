@@ -18,7 +18,7 @@ if [ $1 = "start" ]; then
 fi
 
 # GENERATE NAMESPACE
-cat <<EOF | $KUBECTL_CMD apply -f -
+cat <<EOF | kubectl apply -f -
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
