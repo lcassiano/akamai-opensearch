@@ -26,7 +26,7 @@ spec:
     solvers:
     - http01:
 	ingress:
-          class: nginx
+      class: nginx
 EOF
 
 echo "Appling Secret"
