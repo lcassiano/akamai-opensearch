@@ -17,6 +17,6 @@ data:
     output {
       opensearch {
         hosts => ["http://opensearch-node1:9200", "http://opensearch-node2:9200"]
-        index => "ds-getnet-%{+YYYY-MM-dd}"
+        index => "ds2-akamai-%{+YYYY-MM-dd}"
       }
     }
