@@ -51,15 +51,15 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: opensearch-opensearch-service
+  name: opensearch-logstash-service
   namespace: akamai-opensearch
   labels:
-    app: opensearch-node2
+    app: opensearch-logstash
 spec:
   type: ClusterIP
   ports:
     - name: http
-      port: 9200
-      targetPort: 9200
+      port: 8080
+      targetPort: 8080
   selector:
-    app: opensearch-node2
+    app: opensearch-logstash

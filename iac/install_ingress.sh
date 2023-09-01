@@ -75,7 +75,7 @@ spec:
         path: "/"
         backend:
           service:
-            name: opensearch-opensearch-service
+            name: opensearch-logstash-service
             port:
-              number: 9200
+              number: 8080
 EOF
