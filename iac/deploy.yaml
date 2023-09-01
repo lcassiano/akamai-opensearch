@@ -187,7 +187,7 @@ spec:
     spec:
       containers:
       - name: opensearch-logstash
-        image: docker.elastic.co/logstash/logstash-oss:8.9.0-amd64
+        image: opensearchproject/logstash-oss-with-opensearch-output-plugin
         ports:
         - containerPort: 8080
         volumeMounts:
@@ -197,4 +197,3 @@ spec:
           - name: config
             configMap:
               name: logstash-config
-            restartPolicy: Always
