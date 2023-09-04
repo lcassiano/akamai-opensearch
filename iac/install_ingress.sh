@@ -89,14 +89,14 @@ EOF
 
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
+data:
+  grafana.ini: |
+    [server]
+      domain = ${APPHOSTNAME}
+      root_url = https://${APPHOSTNAME}/grafana/
+      serve_from_sub_path = true
 kind: ConfigMap
 metadata:
   name: grafana-ini
   namespace: akamai-opensearch
-data:
-  grafana.ini: |
-  [server]
-  domain = ${APPHOSTNAME}
-  root_url = https://${APPHOSTNAME}/grafana/
-  serve_from_sub_path = true
 EOF
