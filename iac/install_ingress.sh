@@ -9,7 +9,7 @@ echo ${ADMIN_PASSWORD} | sudo htpasswd -i -c admin_user ${OSUSER}
 export ADMIN_PASSWORD_BASE64=$(cat admin_user | base64)
 rm -rf admin_user
 
-echo ${OSEMAIL} ${OSUSER} ${ADMIN_PASSWORD} ${APPHOSTNAME}
+#echo ${OSEMAIL} ${OSUSER} ${ADMIN_PASSWORD} ${APPHOSTNAME}
 
 echo "Appling ClusterIssuer"
 cat <<EOF | kubectl apply -f -
@@ -95,6 +95,9 @@ data:
       domain = ${APPHOSTNAME}
       root_url = https://${APPHOSTNAME}/grafana/
       serve_from_sub_path = true
+    [security]
+      admin_user = ${OSUSER}
+      admin_password = ${ADMIN_PASSWORD}
 kind: ConfigMap
 metadata:
   name: grafana-ini
