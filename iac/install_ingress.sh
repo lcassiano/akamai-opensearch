@@ -95,9 +95,6 @@ data:
       domain = ${APPHOSTNAME}
       root_url = https://${APPHOSTNAME}/grafana/
       serve_from_sub_path = true
-    [security]
-      admin_user = ${OSUSER}
-      admin_password = ${ADMIN_PASSWORD}
 kind: ConfigMap
 metadata:
   name: grafana-ini
