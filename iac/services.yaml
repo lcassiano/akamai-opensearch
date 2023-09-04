@@ -63,3 +63,20 @@ spec:
       targetPort: 8080
   selector:
     app: opensearch-logstash
+---
+# Ingress service definition.
+apiVersion: v1
+kind: Service
+metadata:
+  name: opensearch-grafana-service
+  namespace: akamai-opensearch
+  labels:
+    app: opensearch-grafana
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 3000
+      targetPort: 3000
+  selector:
+    app: opensearch-grafana

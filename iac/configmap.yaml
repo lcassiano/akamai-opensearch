@@ -11,9 +11,18 @@ data:
       http {
         host => "0.0.0.0"
         port => 8080
+        codec => json
       }
     }
-
+    filter {
+        json {
+          source => "message"
+          remove_field => ["message"]
+        }
+        mutate {
+          remove_field => ["[event][original]"]
+        }
+    }
     output {
       opensearch {
         hosts => ["http://opensearch-node1:9200", "http://opensearch-node2:9200"]

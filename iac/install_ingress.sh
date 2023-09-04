@@ -72,10 +72,31 @@ spec:
             port:
               number: 5601
       - pathType: Prefix
+        path: "/grafana"
+        backend:
+          service:
+            name: opensearch-grafana-service
+            port:
+              number: 3000              
+      - pathType: Prefix
         path: "/"
         backend:
           service:
             name: opensearch-logstash-service
             port:
               number: 8080
+EOF
+
+cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-ini
+  namespace: akamai-opensearch
+data:
+  grafana.ini: |
+  [server]
+  domain = ${APPHOSTNAME}
+  root_url = https://${APPHOSTNAME}/grafana/
+  serve_from_sub_path = true
 EOF

@@ -197,3 +197,35 @@ spec:
           - name: config
             configMap:
               name: logstash-config
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: opensearch-grafana-deployment
+  namespace: akamai-opensearch
+  labels:
+    app: opensearch-grafana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: opensearch-grafana
+  template:
+    metadata:
+      labels:
+        app: opensearch-grafana
+    spec:
+      containers:
+      - name: opensearch-grafana
+        image: grafana/grafana
+        ports:
+        - containerPort: 3000
+        volumeMounts:
+            - name: grafana-config
+              mountPath: /etc/grafana/grafana.ini
+              subPath: grafana.ini
+
+      volumes:
+          - name: grafana-config
+            configMap:
+              name: grafana-ini
