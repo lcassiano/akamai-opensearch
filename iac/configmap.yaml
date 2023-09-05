@@ -24,13 +24,13 @@ data:
           convert => {
             "originContentLen" => "float"
             "lastByte" => "float"
-       	    "overheadBytes" => "float
-            "objSize" => "float
-            "totalBytes" => "float
-            "bytes" => "float
-            "reqEndTimeMSec" => "float
-            "turnAroundTimeMSec" => "float
-            "transferTimeMSec" => "float
+       	    "overheadBytes" => "float"
+            "objSize" => "float"
+            "totalBytes" => "float"
+            "bytes" => "float"
+            "reqEndTimeMSec" => "float"
+            "turnAroundTimeMSec" => "float"
+            "transferTimeMSec" => "float"
             "reqTimeSec" => "float"
           }
         }
