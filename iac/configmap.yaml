@@ -22,6 +22,11 @@ data:
         mutate {
           remove_field => ["[event][original]"]
         }
+        date {
+          match => [ "reqTimeSec","UNIX" ]
+          target => "@timestamp"
+          timezone => "UTC"
+        }
     }
     output {
       opensearch {
