@@ -24,7 +24,7 @@ data:
           convert => {
             "originContentLen" => "float"
             "lastByte" => "float"
-       	    "overheadBytes" => "float"
+            "overheadBytes" => "float"
             "objSize" => "float"
             "totalBytes" => "float"
             "bytes" => "float"
@@ -42,12 +42,17 @@ data:
         }
         date {
           match => [ "reqTimeSec","UNIX" ]
+          target => [ "@timestamp" ]
         }
         urldecode {
           field => "UA"
         }
         useragent {
           source => "UA"
+        }
+        geoip {
+          ecs_compatibility => disabled
+          source => "[cliIP]"
         }
     }
     output {
