@@ -47,8 +47,8 @@ spec:
             command: ["sh","-c","mkdir -p /usr/share/opensearchsearch/data && chown -R 1000:root /usr/share/opensearchsearch/data"]
             resources:
               limits:
-                cpu: "1"
-                memory: 1Gi
+                cpu: 100m
+                memory: 32Mi
             volumeMounts:
             - name: opensearch-data1-volume
               mountPath: /usr/share/opensearchsearch/data
@@ -116,8 +116,8 @@ spec:
             command: ["sh","-c","mkdir -p /usr/share/opensearchsearch/data && chown -R 1000:root /usr/share/opensearchsearch/data"]
             resources:
               limits:
-                cpu: "1"
-                memory: 1Gi
+                cpu: 100m
+                memory: 32Mi
             volumeMounts:
             - name: opensearch-data2-volume
               mountPath: /usr/share/opensearchsearch/data
@@ -164,9 +164,11 @@ spec:
         - name: "DISABLE_SECURITY_DASHBOARDS_PLUGIN"
           value: "true"
         - name: "SERVER_BASEPATH"
-          value: "/dashboards"
+          value: "/logs"
         - name: "SERVER_REWRITEBASEPATH"
           value: "true"
+        - name: "ES_JAVA_OPTS"
+          value: "-Xms1g -Xms1g"
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -224,8 +226,13 @@ spec:
             - name: grafana-config
               mountPath: /etc/grafana/grafana.ini
               subPath: grafana.ini
-
+            - name: opensearch-grafana-reports
+              mountPath: /etc/grafana/provisioning/dashboards/akamai-ds2-delivery.json
+              subPath: akamai-ds2-delivery.json
       volumes:
           - name: grafana-config
             configMap:
               name: grafana-ini
+          - name: opensearch-grafana-reports
+            configMap:
+              name: akamai-ds2-delivery.json

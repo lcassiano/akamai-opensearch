@@ -65,21 +65,21 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: "/dashboards"
+        path: "/logs"
         backend:
           service:
             name: opensearch-dashboards-service
             port:
               number: 5601
       - pathType: Prefix
-        path: "/grafana"
+        path: "/dashboard"
         backend:
           service:
             name: opensearch-grafana-service
             port:
               number: 3000              
       - pathType: Prefix
-        path: "/"
+        path: "/ds2-logs"
         backend:
           service:
             name: opensearch-logstash-service
@@ -93,7 +93,7 @@ data:
   grafana.ini: |
     [server]
       domain = ${APPHOSTNAME}
-      root_url = https://${APPHOSTNAME}/grafana/
+      root_url = https://${APPHOSTNAME}/dashboard/
       serve_from_sub_path = true
 kind: ConfigMap
 metadata:
