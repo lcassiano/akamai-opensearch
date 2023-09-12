@@ -96,13 +96,10 @@ data:
       root_url = https://${APPHOSTNAME}/dashboard/
       serve_from_sub_path = true
     [auth]
-      disable_login = true
       disable_login_form = true
-      disable_signout_menu = true
     [auth.anonymous]
       enabled = true
-      org_name = Akamai .
-      org_role = Editor
+      org_role = Admin
 kind: ConfigMap
 metadata:
   name: grafana-ini
