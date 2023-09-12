@@ -226,13 +226,12 @@ spec:
             - name: grafana-config
               mountPath: /etc/grafana/grafana.ini
               subPath: grafana.ini
-            - name: opensearch-grafana-reports
-              mountPath: /etc/grafana/provisioning/dashboards/akamai-ds2-delivery.json
-              subPath: akamai-ds2-delivery.json
+            - name: opensearch-grafana-volume
+              mountPath: /etc/grafana/provisioning
       volumes:
           - name: grafana-config
             configMap:
               name: grafana-ini
-          - name: opensearch-grafana-reports
-            configMap:
-              name: akamai-ds2-delivery.json
+          - name: opensearch-grafana-volume
+            persistentVolumeClaim:
+              claimName: akamai-grafana-data-claim
