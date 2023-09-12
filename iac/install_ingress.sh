@@ -101,8 +101,8 @@ data:
       disable_signout_menu = true
     [auth.anonymous]
       enabled = true
-      org_name = Default Org.
-      org_role = Admin
+      org_name = Akamai .
+      org_role = Editor
 kind: ConfigMap
 metadata:
   name: grafana-ini
