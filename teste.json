@@ -1,0 +1,628 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": {
+            "type": "grafana",
+            "uid": "-- Grafana --"
+          },
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 1,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "b309728f-5a0a-4e22-b0ad-95777d86efa1"
+        },
+        "description": "",
+        "gridPos": {
+          "h": 9,
+          "w": 5,
+          "x": 0,
+          "y": 0
+        },
+        "id": 3,
+        "options": {
+          "code": {
+            "language": "plaintext",
+            "showLineNumbers": false,
+            "showMiniMap": false
+          },
+          "content": "![alt text](https://www.grupocasasbahia.com.br/wp-content/uploads/2023/09/logo-gcb-blue-alt.png \"Grupo Casas Bahia\")",
+          "mode": "markdown"
+        },
+        "pluginVersion": "10.1.2",
+        "targets": [
+          {
+            "alias": "",
+            "bucketAggs": [
+              {
+                "field": "startdatetime",
+                "id": "2",
+                "settings": {
+                  "interval": "auto"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "b309728f-5a0a-4e22-b0ad-95777d86efa1"
+            },
+            "metrics": [
+              {
+                "id": "1",
+                "type": "count"
+              }
+            ],
+            "query": "",
+            "refId": "A",
+            "timeField": "startdatetime"
+          }
+        ],
+        "type": "text"
+      },
+      {
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "b309728f-5a0a-4e22-b0ad-95777d86efa1"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "displayName": "Offload",
+            "mappings": [],
+            "noValue": "-",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-red",
+                  "value": null
+                },
+                {
+                  "color": "dark-red",
+                  "value": 25
+                },
+                {
+                  "color": "dark-yellow",
+                  "value": 50
+                },
+                {
+                  "color": "green",
+                  "value": 75
+                },
+                {
+                  "color": "dark-green",
+                  "value": 100
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 9,
+          "w": 14,
+          "x": 5,
+          "y": 0
+        },
+        "id": 4,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "limit": 8,
+            "values": true
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true,
+          "text": {}
+        },
+        "pluginVersion": "10.1.2",
+        "targets": [
+          {
+            "alias": "",
+            "bucketAggs": [
+              {
+                "field": "startdatetime",
+                "id": "2",
+                "settings": {
+                  "interval": "1d"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "b309728f-5a0a-4e22-b0ad-95777d86efa1"
+            },
+            "metrics": [
+              {
+                "field": "bytesOffload",
+                "id": "1",
+                "type": "avg"
+              }
+            ],
+            "query": "",
+            "refId": "A",
+            "timeField": "startdatetime"
+          }
+        ],
+        "type": "gauge"
+      },
+      {
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "b309728f-5a0a-4e22-b0ad-95777d86efa1"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "displayName": "Offload Total",
+            "mappings": [],
+            "noValue": "-",
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-red",
+                  "value": null
+                },
+                {
+                  "color": "dark-red",
+                  "value": 25
+                },
+                {
+                  "color": "dark-yellow",
+                  "value": 50
+                },
+                {
+                  "color": "green",
+                  "value": 75
+                },
+                {
+                  "color": "dark-green",
+                  "value": 100
+                }
+              ]
+            },
+            "unit": "percent"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 9,
+          "w": 5,
+          "x": 19,
+          "y": 0
+        },
+        "id": 6,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "limit": 1,
+            "values": true
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true,
+          "text": {}
+        },
+        "pluginVersion": "10.1.2",
+        "targets": [
+          {
+            "alias": "",
+            "bucketAggs": [
+              {
+                "field": "startdatetime",
+                "id": "2",
+                "settings": {
+                  "interval": "1d"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "b309728f-5a0a-4e22-b0ad-95777d86efa1"
+            },
+            "metrics": [
+              {
+                "field": "bytesOffload",
+                "id": "1",
+                "type": "avg"
+              }
+            ],
+            "query": "",
+            "refId": "A",
+            "timeField": "startdatetime"
+          }
+        ],
+        "type": "gauge"
+      },
+      {
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "b309728f-5a0a-4e22-b0ad-95777d86efa1"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisCenteredZero": false,
+              "axisColorMode": "series",
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 9,
+              "gradientMode": "opacity",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "insertNulls": false,
+              "lineInterpolation": "stepBefore",
+              "lineStyle": {
+                "fill": "solid"
+              },
+              "lineWidth": 1,
+              "pointSize": 6,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": true,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "decbytes"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Average edgeBitsPerSecond"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Edge"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Average midgressBitsPerSecond"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Midgress"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Average originBitsPerSecond"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Origin"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Max bytesOffload"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Offload"
+                },
+                {
+                  "id": "unit",
+                  "value": "percent"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 8,
+          "w": 24,
+          "x": 0,
+          "y": 9
+        },
+        "id": 1,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom",
+            "showLegend": true
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "alias": "",
+            "bucketAggs": [
+              {
+                "field": "startdatetime",
+                "id": "2",
+                "settings": {
+                  "interval": "auto"
+                },
+                "type": "date_histogram"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "b309728f-5a0a-4e22-b0ad-95777d86efa1"
+            },
+            "metrics": [
+              {
+                "field": "edgeBitsPerSecond",
+                "id": "1",
+                "settings": {},
+                "type": "avg"
+              },
+              {
+                "field": "midgressBitsPerSecond",
+                "id": "3",
+                "type": "avg"
+              },
+              {
+                "field": "originBitsPerSecond",
+                "id": "4",
+                "type": "avg"
+              },
+              {
+                "field": "bytesOffload",
+                "id": "5",
+                "type": "max"
+              }
+            ],
+            "query": "",
+            "refId": "A",
+            "timeField": "startdatetime"
+          }
+        ],
+        "title": "Traffic",
+        "type": "timeseries"
+      },
+      {
+        "datasource": {
+          "type": "elasticsearch",
+          "uid": "b309728f-5a0a-4e22-b0ad-95777d86efa1"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "custom": {
+              "align": "auto",
+              "cellOptions": {
+                "mode": "basic",
+                "type": "color-background"
+              },
+              "filterable": false,
+              "inspect": false
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "decbytes"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Sum edgeBitsPerSecond"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Edge Bytes"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Sum midgressBitsPerSecond"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Midgress Bytes"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "Sum originBitsPerSecond"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "Origin Bytes"
+                }
+              ]
+            },
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "startdatetime"
+              },
+              "properties": [
+                {
+                  "id": "displayName",
+                  "value": "DateTime"
+                },
+                {
+                  "id": "unit",
+                  "value": "dateTimeAsLocal"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 12,
+          "w": 24,
+          "x": 0,
+          "y": 17
+        },
+        "id": 5,
+        "options": {
+          "cellHeight": "sm",
+          "footer": {
+            "countRows": false,
+            "enablePagination": false,
+            "fields": "",
+            "reducer": [
+              "sum"
+            ],
+            "show": false
+          },
+          "frameIndex": 0,
+          "showHeader": true
+        },
+        "pluginVersion": "10.1.2",
+        "targets": [
+          {
+            "alias": "",
+            "bucketAggs": [
+              {
+                "field": "startdatetime",
+                "id": "6",
+                "settings": {
+                  "min_doc_count": "1",
+                  "order": "desc",
+                  "orderBy": "_term",
+                  "size": "10"
+                },
+                "type": "terms"
+              }
+            ],
+            "datasource": {
+              "type": "elasticsearch",
+              "uid": "b309728f-5a0a-4e22-b0ad-95777d86efa1"
+            },
+            "metrics": [
+              {
+                "field": "edgeBitsPerSecond",
+                "id": "1",
+                "type": "sum"
+              },
+              {
+                "field": "midgressBitsPerSecond",
+                "id": "3",
+                "type": "sum"
+              },
+              {
+                "field": "originBitsPerSecond",
+                "id": "4",
+                "type": "sum"
+              }
+            ],
+            "query": "",
+            "refId": "A",
+            "timeField": "startdatetime"
+          }
+        ],
+        "title": "Offload",
+        "transparent": true,
+        "type": "table"
+      }
+    ],
+    "refresh": "10s",
+    "schemaVersion": 38,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-6h",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "BF-GCB-Dashboard",
+    "uid": "d4884c5e-af6f-4556-b723-955528476eb8",
+    "version": 30,
+    "weekStart": ""
+  }

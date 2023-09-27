@@ -72,6 +72,13 @@ spec:
             port:
               number: 5601
       - pathType: Prefix
+        path: "/elk"
+        backend:
+          service:
+            name: opensearch-service
+            port:
+              number: 9200
+      - pathType: Prefix
         path: "/dashboard"
         backend:
           service:

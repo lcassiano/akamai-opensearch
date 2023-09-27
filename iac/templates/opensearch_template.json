@@ -1,0 +1,284 @@
+PUT /_index_template/ds2-akamai-template
+{
+  "index_patterns": [
+    "ds2-akamai-*"
+  ],
+  "template": {
+    "aliases": {
+      "ds2-akamai": {}
+    },
+    "settings": {
+      "number_of_shards": 2,
+      "number_of_replicas": 1
+    },
+    "mappings": {
+      "numeric_detection": false,
+      "date_detection": false,
+      "dynamic_templates": [],
+      "properties": {
+        "UA": {
+          "type": "keyword"
+        },
+        "customer": {
+          "properties": {
+            "geo": {
+              "properties": {
+                "location": {
+                  "type": "geo_point"
+                }
+              }
+            }
+          }
+        },
+        "akamai": {
+          "properties": {
+            "geo": {
+              "properties": {
+                "location": {
+                  "type": "geo_point"
+                }
+              }
+            }
+          }
+        },
+        "accLang": {
+          "type": "keyword"
+        },
+        "billingRegion": {
+          "type": "keyword"
+        },
+        "bytes": {
+          "coerce": true,
+          "ignore_malformed": true,
+          "type": "integer"
+        },
+        "cacheStatus": {
+          "type": "keyword"
+        },
+        "cacheable": {
+          "type": "keyword"
+        },
+        "city": {
+          "type": "keyword"
+        },
+        "cookie": {
+          "type": "keyword"
+        },
+        "country": {
+          "type": "keyword"
+        },
+        "cp": {
+          "type": "keyword"
+        },
+        "customField": {
+          "type": "keyword"
+        },
+        "dnsLookupTimeMSec": {
+          "coerce": true,
+          "ignore_malformed": true,
+          "type": "integer"
+        },
+        "errorCode": {
+          "type": "keyword"
+        },
+        "ewExecutionInfo": {
+          "type": "text"
+        },
+        "ewUsageInfo": {
+          "type": "text"
+        },
+        "lastByte": {
+          "type": "keyword"
+        },
+        "maxAgeSec": {
+          "coerce": true,
+          "ignore_malformed": true,
+          "type": "integer"
+        },
+        "objSize": {
+          "coerce": true,
+          "ignore_malformed": true,
+          "type": "integer"
+        },
+        "overheadBytes": {
+          "coerce": true,
+          "ignore_malformed": true,
+          "type": "integer"
+        },
+        "proto": {
+          "type": "keyword"
+        },
+        "queryStr": {
+          "type": "keyword"
+        },
+        "range": {
+          "type": "keyword"
+        },
+        "referer": {
+          "type": "keyword"
+        },
+        "reqEndTimeMSec": {
+          "coerce": true,
+          "ignore_malformed": true,
+          "type": "integer"
+        },
+        "reqHost": {
+          "type": "keyword"
+        },
+        "reqId": {
+          "type": "keyword"
+        },
+        "reqMethod": {
+          "type": "keyword"
+        },
+        "reqPath": {
+          "type": "keyword"
+        },
+        "reqPort": {
+          "type": "keyword"
+        },
+        "reqTimeSec": {
+          "format": "epoch_second",
+          "ignore_malformed": true,
+          "type": "date"
+        },
+        "@timestamp": {
+          "type": "date"
+        },
+        "rspContentLen": {
+          "coerce": true,
+          "ignore_malformed": true,
+          "type": "integer"
+        },
+        "rspContentType": {
+          "type": "keyword"
+        },
+        "securityRules": {
+          "type": "keyword"
+        },
+        "serverCountry": {
+          "type": "keyword"
+        },
+        "state": {
+          "type": "keyword"
+        },
+        "statusCode": {
+          "type": "keyword"
+        },
+        "streamId": {
+          "type": "keyword"
+        },
+        "tlsOverheadTimeMSec": {
+          "coerce": true,
+          "ignore_malformed": true,
+          "type": "integer"
+        },
+        "tlsVersion": {
+          "type": "keyword"
+        },
+        "totalBytes": {
+          "coerce": true,
+          "ignore_malformed": true,
+          "type": "integer"
+        },
+        "transferTimeMSec": {
+          "coerce": true,
+          "ignore_malformed": true,
+          "type": "integer"
+        },
+        "turnAroundTimeMSec": {
+          "coerce": true,
+          "ignore_malformed": true,
+          "type": "integer"
+        },
+        "uncompressedSize": {
+          "coerce": true,
+          "ignore_malformed": true,
+          "type": "integer"
+        },
+        "version": {
+          "type": "keyword"
+        },
+        "xForwardedFor": {
+          "type": "keyword"
+        },
+        "cmcd": {
+          "properties": {
+            "bl": {
+              "type": "long"
+            },
+            "br": {
+              "type": "long"
+            },
+            "cid": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "d": {
+              "type": "long"
+            },
+            "mtp": {
+              "type": "long"
+            },
+            "ot": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "sf": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "sid": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "st": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "su": {
+              "type": "text",
+              "fields": {
+                "keyword": {
+                  "type": "keyword",
+                  "ignore_above": 256
+                }
+              }
+            },
+            "tb": {
+              "type": "long"
+            }
+          }
+        },
+        "breadcrumbs": {
+          "type": "text"
+        }
+      }
+    }
+  }
+}
