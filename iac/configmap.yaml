@@ -19,6 +19,26 @@ data:
               source => "message"
               remove_field => ["message"]
             }
+      if [securityRules] {
+        mutate {
+          split => { "securityRules" => "|" }
+        }
+        if [securityRules][0] {
+                mutate {
+                  add_field => { "securityPolicy" => "%{[securityRules][0]}" }
+                }
+        }
+        if [securityRules][1] {
+                mutate {
+                  add_field => { "securityPolicyRules" => "%{[securityRules][1]}" }
+                }
+        }
+        if [securityRules][2] {
+                mutate {
+                  add_field => { "securityPolicyBotRule" => "%{[securityRules][2]}" }
+                }
+        }
+      }
       mutate {
               remove_field => ["[event]", "[user_agent]", "[http]", "[url]", "[host]"]
             }
