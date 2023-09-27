@@ -55,6 +55,9 @@ metadata:
     nginx.ingress.kubernetes.io/auth-type: basic
     nginx.ingress.kubernetes.io/auth-secret: opensearch-basic-auth
     nginx.ingress.kubernetes.io/auth-realm: 'Authentication Required'
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "600"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "600"
 spec:
   tls:
   - hosts:
