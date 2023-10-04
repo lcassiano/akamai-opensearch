@@ -162,3 +162,26 @@ spec:
           - name: opensearch-grafana-volume
             persistentVolumeClaim:
               claimName: akamai-grafana-data-claim
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: akamai-opensearch-dashboard-deployment
+  namespace: akamai-opensearch
+  labels:
+    app: akamai-opensearch-dashboard
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: akamai-opensearch-dashboard
+  template:
+    metadata:
+      labels:
+        app: akamai-opensearch-dashboard
+    spec:
+      containers:
+      - name: akamai-opensearch-dashboard
+        image: ghcr.io/lcassiano/akamai-opensearch-dashboard:latest
+        ports:
+        - containerPort: 3000

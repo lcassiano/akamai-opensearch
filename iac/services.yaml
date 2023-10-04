@@ -68,3 +68,20 @@ spec:
       targetPort: 3000
   selector:
     app: opensearch-grafana
+---
+# Ingress service definition.
+apiVersion: v1
+kind: Service
+metadata:
+  name: akamai-opensearch-dashboard-service
+  namespace: akamai-opensearch
+  labels:
+    app: akamai-opensearch-dashboard
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 3000
+      targetPort: 3000
+  selector:
+    app: akamai-opensearch-dashboard

@@ -78,9 +78,9 @@ spec:
         path: "/"
         backend:
           service:
-            name: opensearch-service
+            name: akamai-opensearch-dashboard-service
             port:
-              number: 9200
+              number: 3000
       - pathType: Prefix
         path: "/dashboard"
         backend:
