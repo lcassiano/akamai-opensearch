@@ -1,8 +1,6 @@
-# akamai-opensearch
-Implementation of opensearch to test Akamai DataStream and Akamai SIEM Connector
+# Akamai Easy DS2+SIEM
 
 ## 1. Introduction
-
 The project intends to provide a easy way to setup opensearch project (https://opensearch.org/) to integrate with Akamai products like SIEM integration and DataStream.
 
 ## 2. Motivation
@@ -15,19 +13,5 @@ Customers want to use Openseach, analyze and process their Akamai Security Data,
 - [Felipe Vilarinho](https://contacts.akamai.com/fvilarin) - Engagement Manager LATAM
 - [Jonathan Goncalves Moreira](https://contacts.akamai.com/jgoncalv) - Engagement Manager LATAM
 
-## 4. Configure
+## 4. How to Configure
 
-Clone last version of repository.
-- `git clone https://github.com/lcassiano/akamai-opensearch.git` 
-Edit file  iac/1-apply-variables.sh and change e-mail to valid e-mail
-- `nano akamai-opensearch/iac/1-apply-variables.sh`
-- `export APPEMAIL=example@example.com`
-
-## 5. How to install
-
-After the provisioning finished, execute the following commands:
-
-- `bash akamai-opensearch/k3s_setup.sh`
-- `cd akamai-opensearch/iac/`
-- `bash setup.sh install`
-- `bash setup.sh start`
