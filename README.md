@@ -17,12 +17,14 @@ Before you begin, you need to [Create your account](https://login.linode.com/sig
 1.  Make a [Login](https://login.linode.com/login) in [Akamai Cloud Computing](https://www.linode.com/) .
     
     ![Akamai Cloud Computing](img/linode_login.jpg)
-    ![Akamai Cloud Computing](img/linode_login.jpg)
 
-2. Install [StackScript](https://cloud.linode.com/linodes/create?type=StackScripts&subtype=Account&stackScriptID=1200644).
-    ```
-    put image here
-    ```
+2. Search for [StackScript](https://cloud.linode.com/linodes/create?type=StackScripts&subtype=Account&stackScriptID=1200644), and click on Deploy
+
+    ![Akamai Cloud Computing](img/linode_stackscript.jpg)
+
+3. Provide basic information [StackScript](https://cloud.linode.com/linodes/create?type=StackScripts&subtype=Account&stackScriptID=1200644).
+
+    ![Akamai Cloud Computing](img/linode_basic.jpg)
 
 3. ....
     ```
