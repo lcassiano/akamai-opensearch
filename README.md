@@ -26,7 +26,19 @@ Before you begin, you need to [Create your account](https://login.linode.com/sig
 
     ![Akamai Cloud Computing](img/linode_basic.jpg)
 
-3. ....
+3. Use Lish to check the installation process and waiting for wellcome message
+
+    # Lish access
+    ![Akamai Cloud Computing](img/linode_lish_console.jpg)
+
+    # Wellcome message
+    ![Akamai Cloud Computing](img/linode_script_message.jpg)
+
+4. Use network tab to get hostname and access interface
+
+    ![Akamai Cloud Computing](img/linode_home.jpg)
+
+
     ```
     TBD
     ```
