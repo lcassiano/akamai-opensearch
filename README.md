@@ -34,7 +34,11 @@ Before you begin, you need to [Create your account](https://login.linode.com/sig
     # Wellcome message
     ![Akamai Cloud Computing](img/linode_script_message.jpg)
 
-4. Use network tab to get hostname and access interface
+4. Click on network tab to get hostname and access interface
+
+    ![Akamai Cloud Computing](img/linode_network.jpg)
+
+5. Use linode hostname to access and get information how to configura DS2
 
     ![Akamai Cloud Computing](img/linode_home.jpg)
 
