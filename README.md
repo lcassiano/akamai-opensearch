@@ -1,6 +1,6 @@
 # Linode for Akamai Datastream v2
 
-The project intends to provide a easy way to setup Dashboards in [Akamai Cloud Computing](https://www.linode.com/) to make more easy to integrate with Akamai products like SIEM integration and [Datastream v2](https://techdocs.akamai.com/datastream2/docs/welcome-datastream2).
+The project intends to provide a easy way to setup Dashboards in [Akamai Cloud Computing](https://www.linode.com/) to make more easy to integrate with Akamai products like "SIEM integration"(Next release) and [Datastream v2](https://techdocs.akamai.com/datastream2/docs/welcome-datastream2).
 
 1.  Linode.
     Build, run, and secure your cloud workloads on Akamai Connected Cloud, a massively distributed edge and cloud platform. [Sign up](https://login.linode.com/signup) today.
